@@ -1,7 +1,7 @@
 {
   "environment": "development",
   "keycloak": {
-    "url": "https://ulp.uniteframework.io/auth",
+    "url": "https://dev-ulp.uniteframework.io/auth",
     "clientId": "registry-frontend",
     "realm": "sunbird-rc"
   },
@@ -10,8 +10,8 @@
   "languageFolder": "/assets/i18n",
   "logoPath": "/assets/images/logo.svg",
   "title": "AVSAR Learner Wallet",
-  "baseUrl": "https://ulp-sbrc.uniteframework.io/registry",
-  "bffUrl": "https://ulp.uniteframework.io/ulp-bff",
+  "baseUrl": "https://dev-ulp-sbrc.uniteframework.io/registry",
+  "bffUrl": "https://dev-ulp.uniteframework.io/ulp-bff",
   "schemaUrl": "https://ulp-sbrc.uniteframework.io/registry/api/docs/swagger.json",
   "footerText": "AVSAR Learner Wallet",
   "languages": [
