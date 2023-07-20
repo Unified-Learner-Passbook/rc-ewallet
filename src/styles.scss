@@ -4,22 +4,14 @@
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
-@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=Convergence&family=DM+Sans:wght@400;500;700&family=EB+Garamond&family=Inter&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@font-face {
-  font-family: "Gilroy-Bold";
-  src: url("./assets/fonts/Gilroy-Black.ttf") format("embedded-opentype"),
-    /* Internet Explorer */ url("./assets/fonts/Gilroy-Bold.ttf") format("woff2"),
-    /* Super Modern Browsers */ url("./assets/fonts/Gilroy-ExtraBold.ttf") format("woff"),
-    /* Pretty Modern Browsers */ url("./assets/fonts/Gilroy-Medium.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("./assets/fonts/Gilroy-Heavy.ttf") format("svg"); /* Legacy iOS */
-}
 
 /* Importing Bootstrap SCSS file. */
 
 @import "~bootstrap/scss/bootstrap";
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 /* PK changes for - theme support */
 :root {
@@ -178,7 +170,7 @@ $primary-color-dark: #000;
 // }
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   color: rgb(0, 0, 0);
   color: var(--subheadingColor) !important;
   //  background: var(--bodyBackground) !important;
@@ -190,11 +182,11 @@ body {
 }
 
 .Dn-sans{
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif !important;
   
 }
 .urbanist{
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Urbanist', sans-serif !important;
 }
 
 .fs-7 {
