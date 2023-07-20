@@ -1,7 +1,7 @@
 {
   "environment": "development",
   "keycloak": {
-    "url": "https://devulp.uniteframework.io/auth",
+    "url": "http://localhost:8080/auth",
     "clientId": "registry-frontend",
     "realm": "sunbird-rc"
   },
@@ -11,7 +11,7 @@
   "logoPath": "/assets/images/logo.svg",
   "title": "Universal Learners Passport",
   "baseUrl": "https://devulp.uniteframework.io/registry",
-  "bffUrl": "https://devulp.uniteframework.io/ulp-bff",
+  "bffUrl": "http://localhost:3000",
   "schemaUrl": "https://devulp.uniteframework.io/registry/api/docs/swagger.json",
   "footerText": "Universal Learners Passport",
   "languages": [
