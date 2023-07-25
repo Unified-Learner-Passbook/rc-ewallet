@@ -1,18 +1,11 @@
-.onboard-btn {
-    background: linear-gradient(180deg, rgba(255, 193, 234, 0.48) 0%, rgba(164, 168, 255, 0.21) 100%);
-    border-radius: 10px;
-    font-family: "Gilroy-Bold";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    align-items: center;
-    text-align: center;
-    color: #060606;
-    border: none;
-    padding: 12px 38px;
-}
-
 .toolbar {
     display: none !important;
+}
+.br-img{
+    border: 5px solid #9D8080;
+    border-radius: 9px;
+}
+.w-85{
+    width: 85% !important;
 }
 

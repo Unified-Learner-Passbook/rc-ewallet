@@ -37,6 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { RegisterComponent } from './register/register.component';
 import { OpportuntiesComponent } from './opportunties_dynamic/opportunties.component';
 import { OpportunitieComponent } from './opportunitie/opportunitie.component';
+import { AadharKycComponent } from './aadhar-kyc/aadhar-kyc.component';
 
 const routes: Routes = [
   {
@@ -76,7 +77,7 @@ const routes: Routes = [
     data: {
       showToolbar: false,
       telemetry: {
-        env: 'opportunties', pageid: 'opportunties', type: 'edit', subtype: 'scroll'
+        env: 'opportunities', pageid: 'opportunities', type: 'edit', subtype: 'scroll'
       }
     }
   },
@@ -103,7 +104,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'opportunitie',
+    path: 'opportunities',
     component: OpportunitieComponent,
     data: {
       showToolbar: true,
@@ -112,6 +113,17 @@ const routes: Routes = [
       },
     },
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'aadhaar-kyc',
+    component: AadharKycComponent,
+    data: {
+      showToolbar: false,
+      telemetry: {
+        env: 'home', pageid: 'home', type: 'list', subtype: 'scroll'
+      },
+    },
+    // canActivate: [AuthGuard]
   },
   {
     path: 'search-certificates',

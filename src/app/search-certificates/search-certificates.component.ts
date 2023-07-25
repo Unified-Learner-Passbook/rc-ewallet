@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
 import { CredentialService } from '../services/credential/credential.service';
 import {
@@ -26,8 +25,8 @@ export class SearchCertificatesComponent implements OnInit {
   @Input() category: string;
   @Output() back = new EventEmitter();
   constructor(
-    private readonly credentialService: CredentialService,
     public readonly authService: AuthService,
+    private readonly credentialService: CredentialService,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly telemetryService: TelemetryService

@@ -1,0 +1,21 @@
+[
+    {
+      "label": "Buddy 4 Study",
+      "description":"Jyoti Prakash Scholarship Program for First-Generation Learners to support students with disabilities, transgender students, first-generation learners, orphans, single-parent children...",
+      "img":"assets/icons/star.svg",
+      "applyLink":"https://sarthi-maharashtragov.in/",
+      "eligibilityCriteria":[
+        "Students whose parents are non-graduates and are daily wage earners, drivers, farmers, gardeners, plumbers, electricians, security guards, etc." , "Applicants must be studying in Class 9-12, graduation, or post graduation courses." , "Applicants must have secured at least 55% marks in their previous qualifying examination.", "The annual family income of the applicant must be less than INR 3 lakh.", "Open only for Indian citizens.", "Children/wards of Buddy4Study employees are not eligible for this scholarship."
+      ]
+    },
+    {
+      "label": "IDreamCareer | Career Counselling for Girls",
+      "description":"Goal : Prevent dropout of girl child from school education after 10th & 12th by providing career guidance.",
+      "img":"assets/icons/sarthi.svg",
+      "applyLink":"https://sarthi-maharashtragov.in/",
+      "eligibilityCriteria":[
+        "Students whose parents are non-graduates and are daily wage earners, drivers, farmers, gardeners, plumbers, electricians, security guards, etc." , "Applicants must be studying in Class 9-12, graduation, or post graduation courses." , "Applicants must have secured at least 55% marks in their previous qualifying examination.", "The annual family income of the applicant must be less than INR 3 lakh.", "Open only for Indian citizens.", "Children/wards of Buddy4Study employees are not eligible for this scholarship."
+      ]
+    }
+    
+]

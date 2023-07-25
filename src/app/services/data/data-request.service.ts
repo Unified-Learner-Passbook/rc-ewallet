@@ -15,8 +15,8 @@ export class DataService {
    * Contains base Url for api end points
    */
   baseUrl: string;
-  token: any;
-  isLoogedIn;
+  token: string;
+  isLoggedIn = false;
   constructor(
     private http: HttpClient,
     public keycloak: KeycloakService) {
@@ -29,10 +29,10 @@ export class DataService {
   private getHeader(headers?: HttpOptions['headers']): HttpOptions['headers'] {
     this.keycloak.isLoggedIn().then((res) => {
       console.log(res);
-      this.isLoogedIn = res;
+      this.isLoggedIn = res;
     })
 
-    if (this.isLoogedIn) {
+    if (this.isLoggedIn) {
       // alert(this.keycloak.isLoggedIn);
       let defaultHeaders = {
         Accept: 'application/json',

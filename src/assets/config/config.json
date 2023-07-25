@@ -1,5 +1,5 @@
 {
-  "environment": "development",
+  "environment": "production",
   "keycloak": {
     "url": "https://uatulp.uniteframework.io/auth",
     "clientId": "registry-frontend",
@@ -9,14 +9,13 @@
   "configFolder": "/assets/config/ui-config",
   "languageFolder": "/assets/i18n",
   "logoPath": "/assets/images/logo.svg",
-  "title": "AVSAR Learner Wallet",
-  "baseUrl": "https://ulp-sbrc.uniteframework.io/registry",
+  "title": "Universal Learners Passport",
+  "baseUrl": "https://uatulp.uniteframework.io/registry",
   "bffUrl": "https://uatulp.uniteframework.io/ulp-bff",
-  "schemaUrl": "https://ulp-sbrc.uniteframework.io/registry/api/docs/swagger.json",
-  "footerText": "AVSAR Learner Wallet",
+  "schemaUrl": "https://uatulp.uniteframework.io/registry/api/docs/swagger.json",
+  "footerText": "Universal Learners Passport",
   "languages": [
     "en",
     "hi"
-  ],
-  "languageUrl": "https://elocker.xiv.in/elocker/api/v1/Localization/search"
+  ]
 }

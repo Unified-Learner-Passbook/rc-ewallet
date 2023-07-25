@@ -1,0 +1,36 @@
+<div class="bg-white position-relative">
+  <div class="flex-center">
+    <img class="img-fluid" src="assets/images/bg-blue.svg" alt="bg-blue">
+  </div>
+  <div class="flex-center">
+    <div class="circle">
+      <i class="fa fa-check-circle-o text-green" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="flex-center">
+    <div class="circle">
+      <i class="fa fa-check-circle-o text-green" *ngIf="isVerified" aria-hidden="true"></i>
+      <i class="fa fa-times-circle-o text-red1" *ngIf="!isVerified" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="font-600 fs-22 text-center mt-5 pt-3">
+      <span *ngIf="isVerified">{{'CONGRATULATIONS' | translate}}</span>
+      <span *ngIf="!isVerified">{{'FAILED' | translate}}</span>
+    </div>
+
+    <div class="fs-14 text-center text-light-black pt-2">
+      <span *ngIf="isVerified">{{'KYC_SUCCESSFULLY' | translate}}</span>
+      <span *ngIf="!isVerified">{{'AADHAR_KYC_FAILED' | translate}}</span>
+    </div>
+
+    <div class="mt-5 flex-center">
+      <button type="submit" *ngIf="isVerified" class="login-btn bg-blue-dark font-600 urbanist w-60 fs-14 mt-4" [routerLink]="['/home']">{{'GO_TO_WALLET' |
+        translate}}</button>
+      <button type="submit" *ngIf="!isVerified" class="login-btn bg-blue-dark font-600 urbanist w-60 fs-14 mt-4" (click)="emitTryAgain()"> {{'TRY_AGAIN' |
+        translate}} &nbsp; <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+
+  </div>
+</div>

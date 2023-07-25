@@ -1,33 +1,23 @@
 <div class="container text-center pb-0 flex-center wallet">
-  <!-- <app-global-header [showTitle]="true"></app-global-header> -->
-  <div class="row">
-    <div class="col-12">
-      <div class="row g-0 mt-3 mb-3 px-3">
-        <div class="col-3 col-md-3 px-0 pr-2">
-          <img src="assets/images/header-round.svg" alt="header-logo">
+  <app-global-header [showTitle]="true"></app-global-header>
+</div>
+<div class="container mb-5 mt-2">
+  <div>
+    <div class="flex-center">
+      <div>
+          <div class="flex-center">
+            <div class="w-95">
+              <img class="img-fluid br-img max-w400" src="assets/images/passport.svg" width="100%" alt="password">
+            </div>
+          </div>
+          <div class="pb-10 mt-5">
+            <button type="button" class="btn btn-primary btn-block btn-lg fs-14 mb-3 urbanist font-600"
+              (click)="register();raiseInteractEvent('register')">{{'REGISTER' | translate}}</button>
+            <button type="button" class="btn btn-outline-primary btn-block fs-14 btn-lg mt-2 urbanist font-600"
+              (click)="login();raiseInteractEvent('login')">{{'LOGIN_VIA_MERI_PEHCHAAN' | translate}}</button>
+          </div>
         </div>
-        <div class="col-9 col-md-9 text-left px-0">
-          <h5 class="card-title fs-14 font-600 br-l ml-2 pl-3">
-            <div class="text-gray-0 fs-14">DEPARTMENT OF</div>
-            <div class="fs-22 heading3">Basic Education</div>
 
-            <div class="text-orange fs-12 fs-sm-10">GOVERNMENT OF UTTAR PRADESH</div>
-          </h5>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
-<div>
-  <img class="img-fluid" src="assets/images/passport.svg" width="100%" alt="password">
-</div>
-<div class="container">
-  <div class="heading2 fs-20 pb-1 mt-4 text-center">Universal Learners Passport</div>
-  <div class="pb-20 text-center">{{ "WELCOME_TO_YOUR_ACADEMIC_WALLET" | translate }}</div>
-  <div class="pb-10">
-    <button type="button" class="btn btn-primary btn-block btn-lg fs-14 font-weight-bold"
-      (click)="register();raiseInteractEvent('register')">{{'REGISTER' | translate}}</button>
-    <button type="button" class="btn btn-outline-primary btn-block fs-14 btn-lg mt-2 font-weight-bold"
-      (click)="login();raiseInteractEvent('login')">{{'LOGIN_VIA_MERI_PEHCHAAN' | translate}}</button>
   </div>
 </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IInteractEventInput } from '../services/telemetry/telemetry-interface';
 import { TelemetryService } from '../services/telemetry/telemetry.service';
 import { CredentialService } from '../services/credential/credential.service';
+import { SchemaService } from '../services/data/schema.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,13 +12,22 @@ import { CredentialService } from '../services/credential/credential.service';
 })
 export class ToolbarComponent implements OnInit {
 
+  sidebarFor = 'default';
+  tabList: any[];
   constructor(
     private readonly telemetryService: TelemetryService,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly credentialService: CredentialService
+    private readonly credentialService: CredentialService,
+    private readonly schemaService: SchemaService
   ) { }
 
   ngOnInit(): void {
+    this.schemaService.getToolbarJson().subscribe((schemaRes) => {
+      const filtered = schemaRes.sidebar.filter(obj => {
+        return Object.keys(obj)[0] === this.sidebarFor;
+      });
+      this.tabList = filtered[0][this.sidebarFor];
+    });
   }
 
   clearCredentials() {

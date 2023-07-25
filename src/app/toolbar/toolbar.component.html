@@ -1,22 +1,7 @@
 <div class="toolbar">
-  <div (click)="raiseInteractEvent('home-tab');clearCredentials();" class="tab tab_hover" [routerLink]="['/home']" routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact:true}">
-    <i class="fa fa-home fs-18"></i>
-    <div class="tab-label"> {{'HOME' | translate}}</div>
-  </div>
-  <!-- <div (click)="raiseInteractEvent('search-tab')" class="tab" [routerLink]="['/search-certificates']"
-    routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <i class="fa fa-search fs-18"></i>
-    <div class="tab-label"> {{'SEARCH' | translate}}</div>
-  </div> -->
-  <div (click)="raiseInteractEvent('scan-code-tab');clearCredentials();" class="tab" [routerLink]="['/scan-code']" routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact:true}">
-    <i class="fa fa-qrcode fs-18"></i>
-    <div class="tab-label"> {{'SCAN' | translate}}</div>
-  </div>
-  <div (click)="raiseInteractEvent('account-tab');clearCredentials()" class="tab" [routerLink]="['/settings']" routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact:true}">
-    <i class="fa fa-user-circle-o fs-18"></i>
-    <div class="tab-label"> {{'ACCOUNT' | translate}}</div>
+  <div class="tab" *ngFor="let tab of tabList" [routerLink]="[tab?.redirectTo]" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:true}" (click)="raiseInteractEvent(tab?.id+'-tab'); clearCredentials();">
+    <i [class]="tab?.className" class="fs-18"></i>
+    <div class="tab-label">{{tab?.title | translate}}</div>
   </div>
 </div>

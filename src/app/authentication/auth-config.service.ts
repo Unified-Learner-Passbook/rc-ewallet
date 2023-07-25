@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,7 @@ export class AuthConfigService {
       return of(this._config);
     }
     return this.httpClient.get('./assets/config/config.json').pipe(
+      shareReplay(1),
       catchError((error) => {
         console.log(error)
         return of(null)

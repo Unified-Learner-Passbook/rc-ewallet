@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, map, retry, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { Observable, throwError } from 'rxjs';
+import { map, retry, tap } from 'rxjs/operators';
+import * as config from '../../../assets/config/config.json';
 
 import {
   HttpClient,
-  HttpHeaders,
   HttpErrorResponse,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthConfigService } from 'src/app/authentication/auth-config.service';
 import { KeycloakService } from 'keycloak-angular';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,13 +20,16 @@ export class AuthService {
   _currentUser;
   _digilockerAccessToken: string;
   constructor(
-    private http: HttpClient,
-    public router: Router,
-    private keycloakService: KeycloakService,
-    // private readonly authConfigService: AuthConfigService
+    private readonly http: HttpClient,
+    private readonly router: Router,
+    private readonly keycloakService: KeycloakService
   ) {
-    this.baseUrl = environment.baseUrl;
+    // this.baseUrl = environment.baseUrl;
     // this.baseUrl = this.authConfigService.config.bffUrl;
+    // this.authConfigService.getConfig().subscribe((config) => {
+    //   this.baseUrl = config.bffUrl;
+    // })
+    this.baseUrl = config.default.bffUrl;
   }
 
   // Sign-up
@@ -48,6 +51,11 @@ export class AuthService {
 
   verifyAccountAadharLink(payload: any) {
     const api = `${this.baseUrl}/v1/sso/digilocker/aadhaar`;
+    return this.http.post(api, payload);
+  }
+
+  aadhaarKYC(payload: any) {
+    const api = `${this.baseUrl}/v1/sso/learner/aadhaar`;
     return this.http.post(api, payload);
   }
 

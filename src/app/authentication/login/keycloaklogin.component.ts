@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
-import { Router, RouterStateSnapshot } from '@angular/router';
+import { NavigationExtras, Router, RouterStateSnapshot } from '@angular/router';
 import { AppConfig } from '../../app.config';
 import { GeneralService } from 'src/app/services/general/general.service';
 import { map } from 'rxjs/operators';
@@ -55,7 +55,22 @@ export class KeycloakloginComponent implements OnInit {
         // }
         // this.router.navigate([this.profileUrl]);
         this.getDID().subscribe((res) => {
-          this.router.navigate(['/home']);
+          const navigationExtras: NavigationExtras = {
+            state: {
+              name: res.result?.name,
+              dob: res.result?.dob,
+              gender: res.result?.gender,
+            }
+          }
+
+          if (!res?.result?.kyc_aadhaar_token) { // Aadhar KYC is pending
+            this.router.navigate(['/aadhaar-kyc'], navigationExtras);
+          } else if (res?.result?.aadhaar_token && res?.result?.kyc_aadhaar_token !== res?.result?.aadhaar_token) { // Institute given Aadhaar and Aadhaar KYC not matched
+            navigationExtras.state.aadhaarMatchError = true;
+            this.router.navigate(['/aadhaar-kyc'], navigationExtras); // re-kyc
+          } else {
+            this.router.navigate(['/home']);
+          }
         }, (err) => {
           this.router.navigate(['/home']);
           console.log(err);

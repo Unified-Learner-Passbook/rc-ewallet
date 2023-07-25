@@ -1,101 +1,134 @@
 <div class="container pb-0 mt-20">
   <app-global-header [showTitle]="true"></app-global-header>
   <div>
+    <div class="br-grey mb-4"></div>
     <div>
       <span routerLink="" class="mt-1 float-left">
         <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>
       </span>
     </div>
-    <div class="h3 mb-3 text-center">{{'REGISTER' | translate}}</div>
+    <div class="flex-center">
+      <div>
+        <div class="text-center fs-16 mb-2 fw-500 reg-tex">{{'WELCOME' | translate}} </div>
+        <div class="fs-20 fw-500 reg-text mb-3 text-center br-bn-2">{{'REGISTER' | translate}}</div>
+      </div>
+    </div>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3 pb-10">
-        <label for="name">{{'NAME' | translate}}<span class="text-danger">*</span></label>
-        <input type="text" class="form-control p-4" id="name" name="name"
-          formControlName="name" placeholder="{{'ENTER_YOUR_NAME' | translate}}">
-        <div *ngIf="registerFormControl.name.invalid && (registerFormControl.name.dirty || registerFormControl.name.touched)" class="alert">
-          <div class="text-red pt-2 mb-0" *ngIf="registerFormControl?.name?.errors?.required">
-            {{'NAME_REQUIRED' | translate }}
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float">
+              <input type="text" class="form-control p-4" id="name" name="name" formControlName="name"
+                placeholder="{{'ENTER_YOUR_NAME' | translate}}">
+              <label for="name">{{'ENTER_YOUR_NAME' | translate}}</label>
+            </div>
+            <div
+              *ngIf="registerFormControl.name.invalid && (registerFormControl.name.dirty || registerFormControl.name.touched)">
+              <div class="text-danger pt-2 mb-0 font-size-sm" *ngIf="registerFormControl?.name?.errors?.required">
+                {{'NAME_REQUIRED' | translate }}
+              </div>
+              <div class="text-danger pt-2 mb-0 font-size-sm" *ngIf="registerFormControl?.name?.errors?.pattern">
+                {{'SPECIAL_CHARACTER' | translate }}
+              </div>
+            </div>
           </div>
-          <div class="text-red pt-2 mb-0" *ngIf="registerFormControl?.name?.errors?.pattern">
-            {{'SPECIAL_CHARACTER' | translate }}
+        </div>
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <input type="date" class="form-control p-4" id="dob" name="dob" formControlName="dob"
+                max="{{today | date:'yyyy-MM-dd'}}">
+              <label for="dob">{{'DOB' | translate}}</label>
+            </div>
+            <p class="text-danger pt-2 mb-0 font-size-sm" *ngIf="registerFormControl.dob.invalid && registerFormControl.dob.touched">
+              {{'ENTER_VALID_DOB' | translate }}</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <select class="w-20 form-control" formControlName="gender">
+                <option value="" disabled selected>{{'SELECT_GENDER' | translate}}</option>
+                <option value="M">{{'MALE' | translate}}</option>
+                <option value="F">{{'FEMALE' | translate}}</option>
+              </select>
+              <label class="gender" for="gender">{{'GENDER' | translate}}</label>
+            </div>
+            <p class="text-danger pt-2 mb-0 font-size-sm"
+              *ngIf="registerFormControl.gender.invalid && registerFormControl.gender.touched">
+              {{'GENDER_REQUIRED' | translate }}</p>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <input type="text" class="form-control p-4" id="aadharId" name="aadharId" formControlName="aadharId"
+                minlength="12" maxlength="12" placeholder="{{'ENTER_AADHAAR_NO' | translate}}">
+              <label for="aadharId">{{'AADHAR_NO' | translate}}</label>
+            </div>
+            <p class="text-danger pt-2 mb-0 font-size-sm"
+              *ngIf="registerFormControl.aadharId.invalid && registerFormControl.aadharId.touched">
+              {{'ENTER_VALID_AADHAAR_NUMBER' | translate }}</p>
+          </div>
+        </div> -->
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <input type="text" class="form-control p-4" id="username" name="username" formControlName="username"
+                placeholder="{{'ENTER_YOUR_USERNAME' | translate}}">
+              <label for="username">{{'USERNAME' | translate}}</label>
+            </div>
+            <p class="text-danger pt-2 mb-0 font-size-sm"
+              *ngIf="registerFormControl.username.invalid && registerFormControl.username.touched">
+              {{'ENTER_VALID_USERNAME' | translate }}</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <input type="password" class="form-control p-4" id="password" name="password" formControlName="password"
+                placeholder="{{'ENTER_PASSWORD' | translate}}">
+              <label for="password">{{'PASSWORD'| translate}}</label>
+            </div>
+            <p class="text-danger pt-2 mb-0 font-size-sm"
+              *ngIf="registerFormControl.password.invalid && registerFormControl.password.touched">{{'PASSWORD_REQUIRED' | translate }}</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3 pb-10">
+            <div class="label-float w-100">
+              <input type="number" class="form-control p-4" id="recoveryPhone" name="recoveryPhone" formControlName="recoveryPhone"
+                placeholder="{{'ENTER_PASSWORD' | translate}}">
+              <label for="recoveryPhone">{{'RECOVERY_PHONE'| translate}}</label>
+            </div>
+            <p class="pt-1 font-size-sm">{{'RECOVERY_PHONE_NOTE' | translate}}</p>
+            <p class="text-danger pt-2 mb-0 font-size-sm"
+              *ngIf="registerFormControl.recoveryPhone.invalid && registerFormControl.recoveryPhone.touched">{{'ENTER_VALID_RECOVERY_PHONE' | translate }}</p>
           </div>
         </div>
       </div>
-      <div class="mb-3 pb-10">
-        <label for="dob">{{'DOB' | translate}}<span class="text-danger">*</span></label>
-        <input type="date" class="form-control p-4" id="dob" name="dob" formControlName="dob"
-          placeholder="Enter Date of Birth" max="{{today | date:'yyyy-MM-dd'}}">
-        <p class="text-red pt-2 mb-0" *ngIf="registerFormControl.dob.invalid && registerFormControl.dob.touched">
-          {{'ENTER_VALID_DOB' | translate }}</p>
-      </div>
-
-      <div class="mb-3 pb-10">
-        <label for="gender">{{'GENDER' | translate}}<span class="text-danger">*</span></label>
-        <select class="w-20 form-select" formControlName="gender">
-          <option value="" disabled selected>{{'SELECT_GENDER' | translate}}</option>
-          <option value="M">{{'MALE' | translate}}</option>
-          <option value="F">{{'FEMALE' | translate}}</option>
-        </select>
-        <p class="text-red pt-2 mb-0" *ngIf="registerFormControl.gender.invalid && registerFormControl.gender.touched">
-          {{'GENDER_REQUIRED' | translate }}</p>
-      </div>
-
-
-      <div class="mb-3 pb-10">
-        <label for="aadharId">{{'AADHAR_NO' | translate}}<span class="text-danger">*</span></label>
-        <input type="text" class="form-control p-4" id="aadharId" name="aadharId" formControlName="aadharId"
-          minlength="12" maxlength="12" placeholder="{{'ENTER_AADHAAR_NO' | translate}}">
-        <p class="text-red pt-2 mb-0"
-          *ngIf="registerFormControl.aadharId.invalid && registerFormControl.aadharId.touched">
-          {{'ENTER_VALID_AADHAAR_NUMBER' |
-          translate }}</p>
-      </div>
-
-      <div class="mb-3 pb-10">
-        <label for="username">{{'USERNAME' | translate}}<span class="text-danger">*</span></label>
-        <input type="text" class="form-control p-4" id="username" name="username" formControlName="username"
-          placeholder="{{'ENTER_YOUR_USERNAME' | translate}}">
-        <p class="text-red pt-2 mb-0"
-          *ngIf="registerFormControl.username.invalid && registerFormControl.username.touched">{{'ENTER_VALID_USERNAME'
-          |
-          translate }}</p>
-      </div>
-
-      <div class="mb-3 pb-10">
-        <label for="password">{{'PASSWORD'| translate}}<span class="text-danger">*</span></label>
-        <input type="password" class="form-control p-4" id="password" name="password" formControlName="password"
-          placeholder="{{'ENTER_PASSWORD' | translate}}">
-        <p class="text-red pt-2 mb-0"
-          *ngIf="registerFormControl.password.invalid && registerFormControl.password.touched">{{'PASSWORD_REQUIRED' |
-          translate }}</p>
-      </div>
-
-
-      <div class="pb-10 text-center">
-        <button type="submit" [disabled]="registerForm.invalid"
+      <div class="pb-10 text-center d-flex justify-content-center">
+        <button type="submit" [disabled]="registerForm?.invalid" [ngClass]="{'disable-btn': !registerForm?.valid}"
           class="login-btn bg-blue-dark font-600 mt-4">{{'REGISTER' | translate}}</button>
       </div>
     </form>
   </div>
 </div>
-
 <div class="text-center" *ngIf="isLoading">
   <div class="center-loading">
     <div class="spinner-border">
     </div>
   </div>
 </div>
-
-
 <!-- Modal -->
 <ng-template #registerModal tabindex="-1" role="dialog" aria-labelledby="registerModal">
   <div class="modal-content bo-rd-10">
     <div class="modal-body">
       <div class="text-center pt-2 fs-20 fw-500 bl-text-blue pb-2">{{'SUCCESSFULLY_REGISTERED' | translate}}</div>
-      <div class="flex-center">
+      <!-- <div class="flex-center">
         <button type="button" class="btn btn-primary mt-4 mb-2 px-5 fs-14 btn-lg font-weight-bold"
-          (click)="gotoLoginPage()">{{'GO_TO_WALLET' | translate}}</button>
-      </div>
+          (click)="gotoLoginPage()">{{'GO_TO_LOGIN' | translate}}</button>
+      </div> -->
     </div>
   </div>
 </ng-template>

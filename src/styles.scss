@@ -4,21 +4,14 @@
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
-@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@font-face {
-  font-family: "Gilroy-Bold";
-  src: url("./assets/fonts/Gilroy-Black.ttf") format("embedded-opentype"),
-    /* Internet Explorer */ url("./assets/fonts/Gilroy-Bold.ttf") format("woff2"),
-    /* Super Modern Browsers */ url("./assets/fonts/Gilroy-ExtraBold.ttf") format("woff"),
-    /* Pretty Modern Browsers */ url("./assets/fonts/Gilroy-Medium.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("./assets/fonts/Gilroy-Heavy.ttf") format("svg"); /* Legacy iOS */
-}
+// @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css2?family=Convergence&family=DM+Sans:wght@400;500;700&family=EB+Garamond&family=Inter&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* Importing Bootstrap SCSS file. */
 
 @import "~bootstrap/scss/bootstrap";
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 /* PK changes for - theme support */
 :root {
@@ -177,14 +170,22 @@ $primary-color-dark: #000;
 // }
 body {
   margin: 0;
-  font-family: "Lato", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   color: rgb(0, 0, 0);
   color: var(--subheadingColor) !important;
   //  background: var(--bodyBackground) !important;
-  background: linear-gradient(193deg, var(--bgPrimaryColor) 0%, var(--bgSecondaryColor) 100%) !important;
+  // background: linear-gradient(193deg, var(--bgPrimaryColor) 0%, var(--bgSecondaryColor) 100%) !important;
+  background: #fff !important;
   background-repeat: no-repeat;
   background-size: cover !important;
   height: 100% !important;
+}
+
+.Dn-sans {
+  font-family: "DM Sans", sans-serif !important;
+}
+.urbanist {
+  font-family: "Urbanist", sans-serif !important;
 }
 
 .fs-7 {
@@ -205,6 +206,9 @@ body {
 
 .w-70 {
   width: 70% !important;
+}
+.max-w400 {
+  max-width: 400px !important;
 }
 
 a {
@@ -234,16 +238,24 @@ a {
 
 .modal.fade .modal-dialog.panel-right {
   right: -320px;
-  -webkit-transition: opacity 0.3s linear, right 400ms ease-in-out !important;
-  -moz-transition: opacity 0.3s linear, right 400ms ease-in-out !important;
-  -o-transition: opacity 0.3s linear, right 400ms ease-in-out !important;
-  transition: opacity 0.3s linear, right 400ms ease-in-out !important;
+  -webkit-transition:
+    opacity 0.3s linear,
+    right 400ms ease-in-out !important;
+  -moz-transition:
+    opacity 0.3s linear,
+    right 400ms ease-in-out !important;
+  -o-transition:
+    opacity 0.3s linear,
+    right 400ms ease-in-out !important;
+  transition:
+    opacity 0.3s linear,
+    right 400ms ease-in-out !important;
 }
 
 .modal.fade.show .modal-dialog.panel-right {
   right: 0;
 }
-.fs-15{
+.fs-15 {
   font-size: 15px;
 }
 
@@ -284,7 +296,9 @@ formly-autocomplete-type .ng-select {
 
 .form-control:focus {
   border-color: #69afcf;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #69afcf;
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px #69afcf;
 }
 
 .navbar-brand {
@@ -349,7 +363,8 @@ formly-autocomplete-type .ng-select {
   border-color: var(--primaryColor) !important;
 }
 
-.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:hover {
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:hover {
   background: var(--primaryColor) !important;
   color: white !important;
   opacity: 0.7 !important;
@@ -559,10 +574,13 @@ label {
   font-size: 16px !important;
 }
 .font-600 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 .font-700 {
   font-weight: 700;
+}
+.w-95 {
+  width: 95%;
 }
 .pb-0 {
   padding-bottom: 0 !important;
@@ -1154,6 +1172,34 @@ ngb-modal-window {
     font-size: 17px !important;
   }
 }
-.bl-text-blue{
+.bl-text-blue {
   color: #060461;
+}
+.reg-text {
+  color: #1e2060 !important;
+}
+.login-btn {
+  width: 256px;
+  height: 43px;
+  background: #1e2060 !important;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.disable-btn {
+  background-color: rgba(6, 4, 97, 0.2) !important;
+  cursor: alias;
+}
+.br-bn-2 {
+  border-bottom: 2px solid #1e2060;
+  display: inline-block;
+}
+.br-grey {
+  border-bottom: 2px solid #d8dadc;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
 }

@@ -23,6 +23,12 @@ export class SchemaService {
     return this.dataService.get(req);
   }
 
+  getToolbarJson() {
+    const url = `.${this.configFolder}/toolbar.json`;
+
+    return this.dataService.get({ url });
+  }
+
   getHeaderJSON() {
     let url = `.${this.configFolder}/headers.json`;
     url.replace('//', '/');
