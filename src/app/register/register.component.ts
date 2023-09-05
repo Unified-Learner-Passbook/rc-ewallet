@@ -137,14 +137,13 @@ export class RegisterComponent implements OnInit {
       this.isLoading = true;
       const payload =
       {
-        url: this.authConfigService.config.bffUrl + '/v1/sso/learner/register',
+        url: this.authConfigService.config.bulkIssuance + '/bulk/v1/learner/q1/register',
         data: {
           "name": this.registerForm.value.name,
-          "gender": this.registerForm.value.gender,
           "dob": this.registerForm.value.dob,
-          "username": this.registerForm.value.username,
-          "password": this.registerForm.value.password,
+          "gender": this.registerForm.value.gender,
           "recoveryphone": this.registerForm.value.recoveryPhone.toString(),
+          "username": this.registerForm.value.username,
           "kyc_aadhaar_token": this.aadhaarToken
         }
       }

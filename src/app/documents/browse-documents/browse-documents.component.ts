@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CredentialService } from 'src/app/services/credential/credential.service';
 import { DataService } from 'src/app/services/data/data-request.service';
@@ -49,23 +49,27 @@ export class BrowseDocumentsComponent implements OnInit, AfterViewInit {
   }
 
   fetchCredentialCategories() {
+    this.categories = [];
     if (this.authService?.currentUser?.did) {
       this.showApproval = false;
       console.log("DID", this.authService.currentUser.did);
       this.isLoading = true;
-      this.credentialService.getAllCredentials().pipe(map((res: any) => {
-        console.log("result", res);
-        this.allCredentials = res;
-        res.map((item: any) => {
-          this.updateCategoryList(item.credential_schema.name);
+      this.credentialService.getAllCredentials().pipe(
+        first(),
+        map((res: any) => {
+          console.log("result", res);
+          this.allCredentials = res;
+          res.map((item: any) => {
+            this.updateCategoryList(item.credential_schema.name);
+          });
+          console.log("this.categories", this.categories);
+          return res;
+        }))
+        .subscribe((res: any) => {
+          this.isLoading = false;
+        }, error => {
+          this.isLoading = false;
         });
-        console.log("this.categories", this.categories);
-        return res;
-      })).subscribe(res => {
-        this.isLoading = false;
-      }, error => {
-        this.isLoading = false;
-      });
     }
   }
 

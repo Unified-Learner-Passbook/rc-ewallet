@@ -12,6 +12,7 @@
   "title": "Universal Learners Passport",
   "baseUrl": "https://uatulp.uniteframework.io/registry",
   "bffUrl": "https://uatulp.uniteframework.io/ulp-bff",
+  "bulkIssuance": "https://uatulp.uniteframework.io/bulk-issuance",
   "schemaUrl": "https://uatulp.uniteframework.io/registry/api/docs/swagger.json",
   "footerText": "Universal Learners Passport",
   "languages": [
