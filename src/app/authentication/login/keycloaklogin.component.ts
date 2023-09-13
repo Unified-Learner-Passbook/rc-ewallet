@@ -71,7 +71,7 @@ export class KeycloakloginComponent implements OnInit {
 
       if (this.isDigilockerUser) {
         const payload = {
-          url: `${this.authConfigService.config.bulkIssuance}/bulk/v1/learner/digi/getdetail`,
+          url: `${this.authConfigService.config.bffUrl}/v1/learner/digi/getdetail`,
           data: this.digiLockerUser,
           header: new HttpHeaders({
             Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -139,7 +139,7 @@ export class KeycloakloginComponent implements OnInit {
     let headerOptions = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('token')
     });
-    return this.dataService.get({ url: `${this.authConfigService.config.bulkIssuance}/bulk/v1/learner/getdetail`, header: headerOptions }).pipe(map((res: any) => {
+    return this.dataService.get({ url: `${this.authConfigService.config.bffUrl}/v1/learner/getdetail`, header: headerOptions }).pipe(map((res: any) => {
       console.log(res);
 
       localStorage.setItem('currentUser', JSON.stringify(res.result));

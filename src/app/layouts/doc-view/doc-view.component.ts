@@ -70,7 +70,7 @@ export class DocViewComponent implements OnInit {
     }
 
     getTemplate(id: string): Observable<any> {
-        return this.generalService.getData(`${this.baseUrl}/v1/sso/student/credentials/rendertemplateschema/${id}`, true).pipe(
+        return this.generalService.getData(`${this.baseUrl}/v1/credentials/rendertemplateschema/${id}`, true).pipe(
             map((res: any) => {
                 if (res.result.length > 1) {
                     const selectedLangKey = localStorage.getItem('setLanguage');
@@ -115,7 +115,7 @@ export class DocViewComponent implements OnInit {
             output: "HTML"
         }
         // delete request.credential.credentialSubject;
-        this.http.post(`${this.baseUrl}/v1/sso/student/credentials/render`, request, requestOptions).pipe(map((data: any) => {
+        this.http.post(`${this.baseUrl}/v1/credentials/render`, request, requestOptions).pipe(map((data: any) => {
             this.blob = new Blob([data], {
                 type: 'application/pdf' // must match the Accept type
             });

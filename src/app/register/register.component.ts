@@ -137,7 +137,7 @@ export class RegisterComponent implements OnInit {
       this.isLoading = true;
       const payload =
       {
-        url: this.authConfigService.config.bulkIssuance + '/bulk/v1/learner/q1/register',
+        url: this.authConfigService.config.bffUrl + '/v1/learner/q1/register',
         data: {
           "name": this.registerForm.value.name,
           "dob": this.registerForm.value.dob,
